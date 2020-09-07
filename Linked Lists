@@ -1,0 +1,48 @@
+class Node:
+    def __init__(self,dataval):
+        self.dataval = dataval
+        self.nextval = None
+
+#Generation of Linked List
+class SLinkedList:
+    def _init_(self):
+        self.headval = None
+
+    #Linked List Traversal
+    def listprint(self):
+        printval = self.headval
+        while printval is not None:
+            print(printval.dataval)
+            printval = printval.nextval
+    #Inserting at the begining
+    def begining(self,newdata):
+        NewNode = Node(newdata)
+        NewNode.nextval = self.headval
+        self.headval = NewNode
+    #Inserting at the end
+    def atend(self,new_data):
+        New_Node = Node(new_data)
+        if self.headval is None:
+            self.headval = New_Node
+            return
+        laste = self.headval
+        while(laste.nextval):
+            laste = laste.nextval
+        laste.nextval = New_Node
+
+list1 = SLinkedList()
+list1.headval = Node("Mon")
+e2 = Node("Tue")
+e3 = Node("Wed")
+
+#Linking first node to second node
+list1.headval.nextval = e2
+
+#Linking second node to third node
+e2.nextval = e3
+
+list1.begining("Sun")
+
+list1.atend("Thu")
+
+list1.listprint()
